@@ -39,23 +39,21 @@
             cursor: pointer;
         }
 
-        .fullscreen-container {
-            width: 100vw;
-            height: 100vh;
-            overflow: auto;
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
         }
 
-        .image-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .image-container img {
+        img {
             max-width: 100%;
-            max-height: 100%;
-            margin: 10px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
         }
 
         .countdown {
@@ -75,8 +73,7 @@
         <a onclick="showContent('contact')">Contact Us</a>
     </header>
 
-    <div id="homeContent" class="fullscreen-container">
-        <!-- Content for the "Home" page -->
+    <div id="homeContent" class="container">
         <img src="Shogun Logo 01 Artboard 1 Copy.jpeg" alt="Shogun Sushi Logo">
         <h1>Coming Soon</h1>
         <p>Grand Opening on Jan 19, 2024. Stay tuned for updates!</p>
@@ -132,7 +129,7 @@
         // Function to show the content based on the selected option
         function showContent(option) {
             // Hide all content sections
-            var sections = document.querySelectorAll('.fullscreen-container');
+            var sections = document.querySelectorAll('.container, .fullscreen-container');
             sections.forEach(function (section) {
                 section.style.display = "none";
             });
