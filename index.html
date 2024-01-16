@@ -86,8 +86,8 @@
             margin: 10px;
         }
 
-        /* Hide both menu and home content initially */
-        #homeContent, #menuContent {
+        /* Show only active content */
+        .container:not(.active), .fullscreen-container:not(.active) {
             display: none;
         }
     </style>
@@ -102,7 +102,7 @@
         <a onclick="showContent('contact')">Contact Us</a>
     </header>
 
-    <div id="homeContent" class="container">
+    <div id="homeContent" class="container active">
         <img src="Shogun Logo 01 Artboard 1 Copy.jpeg" alt="Shogun Sushi Logo">
         <h1>Coming Soon</h1>
         <p>Grand Opening on Jan 19, 2024. Stay tuned for updates!</p>
