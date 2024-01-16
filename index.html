@@ -39,47 +39,29 @@
             cursor: pointer;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 80px auto;
+        .fullscreen-container {
+            width: 100vw;
+            height: 100vh;
+            overflow: auto;
         }
 
-        img {
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-container img {
             max-width: 100%;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        p {
-            color: #777;
+            max-height: 100%;
+            margin: 10px;
         }
 
         .countdown {
             color: #555;
             font-size: 24px;
             margin-top: 20px;
-        }
-
-        /* Style for the PDF container */
-        .pdf-container {
-            display: none;
-            width: 100vw;
-            height: 100vh;
-            overflow: auto;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #fff;
-            z-index: 2;
-        }
-
-        /* Style for the PDF iframe */
-        .pdf-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
         }
     </style>
 </head>
@@ -93,7 +75,8 @@
         <a onclick="showContent('contact')">Contact Us</a>
     </header>
 
-    <div id="homeContent" class="container">
+    <div id="homeContent" class="fullscreen-container">
+        <!-- Content for the "Home" page -->
         <img src="Shogun Logo 01 Artboard 1 Copy.jpeg" alt="Shogun Sushi Logo">
         <h1>Coming Soon</h1>
         <p>Grand Opening on Jan 19, 2024. Stay tuned for updates!</p>
@@ -102,9 +85,25 @@
         </div>
     </div>
 
-    <div id="menuContent" class="pdf-container">
-        <embed class="pdf-iframe" src="Shogun Final Version.pdf" type="application/pdf" />
+    <div id="menuContent" class="fullscreen-container">
+        <!-- Content for the "Menu" page -->
+        <div class="image-container">
+            <!-- Add your 8 images here -->
+            <img src="Menu0.jpg" alt="Menu Image 1">
+            <img src="Menu1.jpg" alt="Menu Image 2">
+            <img src="Menu2.jpg" alt="Menu Image 3">
+            <img src="Menu3.jpg" alt="Menu Image 4">
+            <img src="Menu4.jpg" alt="Menu Image 5">
+            <img src="Menu5.jpg" alt="Menu Image 6">
+            <img src="Menu6.jpg" alt="Menu Image 7">
+            <img src="Menu7.jpg" alt="Menu Image 8">
+        </div>
+        <div class="countdown">
+            <p id="demo"></p>
+        </div>
     </div>
+
+    <!-- Add other content sections as needed -->
 
     <script>
         // Set the date we're counting down to
@@ -132,20 +131,14 @@
 
         // Function to show the content based on the selected option
         function showContent(option) {
-            var homeContent = document.getElementById("homeContent");
-            var menuContent = document.getElementById("menuContent");
-
-            // Hide both contents initially
-            homeContent.style.display = "none";
-            menuContent.style.display = "none";
+            // Hide all content sections
+            var sections = document.querySelectorAll('.fullscreen-container');
+            sections.forEach(function (section) {
+                section.style.display = "none";
+            });
 
             // Show the selected content
-            if (option === 'home') {
-                homeContent.style.display = "block";
-            } else if (option === 'menu') {
-                menuContent.style.display = "block";
-            }
-            // Add conditions for other options if needed
+            document.getElementById(option + 'Content').style.display = "block";
         }
     </script>
 </body>
